@@ -13,7 +13,7 @@ if (!TMDB_API_KEY) {
 // ---------- Manifest ----------
 const manifest = {
   id: "org.josh.classics_90s_2010s",
-  version: "1.3.0",
+  version: "1.4.0",
   name: "90s–2010 (By Decade)",
   description:
     "Curated catalogs split by decade: 1990s and 2000s–2010. Metadata only; pair with your favorite streaming add-ons.",
