@@ -1,4 +1,4 @@
-// index.js — Stremio add-on: "90s–2010 (By Decade)"
+// index.js — Stremio add-on: "80s–2010 (By Decade)"
 // Catalog-only (no streams). Uses TMDb (v3) for metadata.
 
 import fetch from "node-fetch";
@@ -13,14 +13,15 @@ if (!TMDB_API_KEY) {
 // ---------- Manifest ----------
 const manifest = {
   id: "org.josh.classics_90s_2010s",
-  version: "1.2.0",
+  version: "1.3.0",
   name: "90s–2010 (By Decade)",
   description:
     "Curated catalogs split by decade: 1990s and 2000s–2010. Metadata only; pair with your favorite streaming add-ons.",
   types: ["movie"],
   resources: ["catalog", "meta"],
   catalogs: [
-    { type: "movie", id: "nineties",       name: "1990s Movies" },
+    { type: "movie", id: "eighties",       name: "1980s Movies" },
+    { type: "movie", id: "nineties",       name: "1990s Movies" },  
     { type: "movie", id: "two_thousands",  name: "2000s–2010 Movies" }
   ],
 };
@@ -57,8 +58,10 @@ async function tmdb(path, params = {}) {
 // ---------- Catalog handler ----------
 builder.defineCatalogHandler(async ({ id }) => {
   const ranges = {
+    eighties:      { gte: "1980-01-01", lte: "1989-12-31" },
     nineties:      { gte: "1990-01-01", lte: "1999-12-31" },
     two_thousands: { gte: "2000-01-01", lte: "2010-12-31" },
+    
   };
   const range = ranges[id];
   if (!range) return { metas: [] };
