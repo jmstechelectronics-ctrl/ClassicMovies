@@ -79,6 +79,7 @@ builder.defineCatalogHandler(async ({ id }) => {
       "primary_release_date.gte": range.gte,
       "primary_release_date.lte": range.lte,
       "vote_count.gte": 500, // avoid tiny-vote outliers
+      with_original_language: "en"
     });
     if (!data.results || !data.results.length) break;
     metas.push(...data.results.map(toMetaPreview));
