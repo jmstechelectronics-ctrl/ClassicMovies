@@ -1,0 +1,12 @@
+v: 0
+name: classicmovies
+services:
+  - name: addon
+    engine: nodejs@18
+    src: .
+    run: node index.js
+    primary: true
+    public_routes:
+      - /.*        # expose everything (manifest, catalog, meta)
+    env:
+      - TMDB_API_KEY
