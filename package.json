@@ -1,14 +1,12 @@
 {
   "name": "stremio-90s-2010s-catalog",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "type": "module",
   "main": "index.js",
-  "license": "MIT",
-  "scripts": {
-    "start": "node index.js"
-  },
+  "scripts": { "start": "node index.js" },
   "dependencies": {
     "node-fetch": "^3.3.2",
     "stremio-addon-sdk": "^1.6.9"
-  }
+  },
+  "engines": { "node": ">=18" }
 }
